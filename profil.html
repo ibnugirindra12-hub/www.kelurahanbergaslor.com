@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profil Kelurahan Bergas Lor</title>
+    <meta name="description" content="Profil lingkungan, dokumentasi kegiatan KKN UNNES GIAT 17, dan sambutan Lurah Bergas Lor.">
+
+    <!-- Favicon Tab Browser -->
+    <link rel="icon" href="Logo Bergas.png">
+
+    <link rel="stylesheet" href="profil.css">
+
+    <!-- Tambahan Animasi Logo -->
+    <style>
+        @keyframes floatLogo {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-3px) rotate(2deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 8px rgba(46, 125, 50, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(46, 125, 50, 0);
+            }
+        }
+
+        .navbar .logo-icon {
+            transition: transform 0.3s ease, filter 0.3s ease;
+            animation: floatLogo 4s ease-in-out infinite;
+            border-radius: 50%;
+        }
+
+        .navbar .logo:hover .logo-icon {
+            transform: scale(1.1) rotate(5deg);
+            animation: pulseGlow 1.5s infinite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <!-- Gambar Logo dengan deteksi otomatis ekstensi (.png, .jpg, .jpeg, .webp) -->
+            <img 
+                src="Logo Bergas.png" 
+                alt="Logo Bergas Lor" 
+                class="logo-icon"
+                style="object-fit: contain; padding: 0; background: transparent; width: 42px; height: 42px;"
+                onerror="
+                    if (!this.dataset.step) {
+                        this.dataset.step = 1;
+                        this.src = 'Logo Bergas.jpg';
+                    } else if (this.dataset.step == 1) {
+                        this.dataset.step = 2;
+                        this.src = 'Logo Bergas.jpeg';
+                    } else if (this.dataset.step == 2) {
+                        this.dataset.step = 3;
+                        this.src = 'Logo Bergas.webp';
+                    } else if (this.dataset.step == 3) {
+                        this.dataset.step = 4;
+                        this.src = 'Logo Bergas';
+                    } else {
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'inline-flex';
+                    }
+                ">
+            <span class="logo-icon" style="display: none;">B</span>
+            <span>
+                <strong>Bergas Lor</strong>
+                <small>Profil Kelurahan</small>
+            </span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Buka menu navigasi"
+            aria-expanded="false"
+            aria-controls="navMenu">
+            ☰
+        </button>
+
+        <nav aria-label="Navigasi utama">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="profil.html" class="active">Profil</a></li>
+                <li><a href="pelayanan.html">Pelayanan</a></li>
+                <li><a href="informasi.html">Informasi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+        <section class="profile-hero">
+            <div class="hero-overlay"></div>
+
+            <div class="profile-hero-content">
+                <span class="eyebrow">MENGENAL LEBIH DEKAT</span>
+
+                <h1>
+                    Profil Kelurahan<br>
+                    <span>Bergas Lor</span>
+                </h1>
+
+                <p>
+                    Mengenal lingkungan, masyarakat, potensi wilayah,
+                    serta semangat kebersamaan Kelurahan Bergas Lor.
+                </p>
+
+                <a href="#tentang" class="btn-primary">
+                    Jelajahi Profil <span>↓</span>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- ================= TENTANG KELURAHAN ================= -->
+        <section class="section about-section" id="tentang">
+
+            <div class="section-heading">
+                <span class="section-label">TENTANG KELURAHAN</span>
+
+                <h2>
+                    Mengenal Lingkungan<br>
+                    <span>Bergas Lor</span>
+                </h2>
+
+                <p>
+                    Lingkungan yang tumbuh melalui kebersamaan,
+                    kepedulian, dan partisipasi masyarakat.
+                </p>
+            </div>
+
+
+            <div class="about-grid">
+
+                <!-- FOTO LINGKUNGAN -->
+                <div class="about-image">
+
+                    <img
+                        src="peta.jpg"
+                        alt="Peta atau gambaran wilayah Kelurahan Bergas Lor"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                    <div class="image-placeholder">
+                        <span>🏡</span>
+                        <p>Foto Lingkungan Bergas Lor</p>
+                        <small>Tambahkan foto atau peta wilayah kelurahan</small>
+                    </div>
+
+                    <div class="image-caption">
+                        <strong>Kelurahan Bergas Lor</strong>
+                        <span>Kabupaten Semarang, Jawa Tengah</span>
+                    </div>
+
+                </div>
+
+
+                <!-- DESKRIPSI DAN KARTU -->
+                <div class="about-content">
+
+                    <h3>Lingkungan yang Hangat dan Penuh Kebersamaan</h3>
+
+                    <p>
+                        Kelurahan Bergas Lor merupakan bagian dari
+                        wilayah Kabupaten Semarang, Jawa Tengah.
+                        Halaman profil ini menjadi sarana untuk
+                        memperkenalkan lingkungan kelurahan,
+                        kehidupan masyarakat, serta potensi lokal
+                        yang dimiliki.
+                    </p>
+
+                    <p>
+                        Lingkungan yang nyaman dapat diwujudkan
+                        melalui kepedulian terhadap kebersihan,
+                        penghijauan, keamanan, dan kegiatan sosial.
+                        Semangat gotong royong menjadi salah satu
+                        nilai penting dalam membangun kehidupan
+                        masyarakat yang harmonis.
+                    </p>
+
+                    <p>
+                        Melalui kerja sama antara pemerintah
+                        kelurahan dan masyarakat, berbagai potensi
+                        lokal diharapkan dapat terus dikembangkan
+                        demi mendukung kesejahteraan bersama.
+                    </p>
+
+
+                    <!-- ================= KARTU INTERAKTIF ================= -->
+                    <div class="values-grid">
+
+                        <!-- KARTU LINGKUNGAN ASRI -->
+                        <button
+                            type="button"
+                            class="value-item environment-toggle"
+                            id="environmentToggle"
+                            aria-expanded="false"
+                            aria-controls="environmentDetails">
+
+                            <span class="value-icon">🌱</span>
+
+                            <span class="value-description">
+                                <strong>Lingkungan Asri</strong>
+                                <small>
+                                    Klik untuk melihat galeri lingkungan
+                                </small>
+                            </span>
+
+                            <span class="toggle-arrow" id="toggleArrow">＋</span>
+                        </button>
+
+
+                        <!-- KARTU DOKUMENTASI KKN -->
+                        <button
+                            type="button"
+                            class="value-item kkn-toggle"
+                            id="kknToggle"
+                            aria-expanded="false"
+                            aria-controls="kknDetails">
+
+                            <span class="value-icon">📸</span>
+
+                            <span class="value-description">
+                                <strong>Dokumentasi Kegiatan KKN</strong>
+                                <small>
+                                    Klik untuk melihat 15 foto kegiatan
+                                </small>
+                            </span>
+
+                            <span class="toggle-arrow" id="kknArrow">＋</span>
+                        </button>
+
+
+                        <!-- KARTU POTENSI LOKAL -->
+                        <div class="value-item">
+                            <span class="value-icon">🏘️</span>
+
+                            <div>
+                                <strong>Potensi Lokal</strong>
+                                <small>
+                                    Mendukung perkembangan masyarakat
+                                </small>
+                            </div>
+                        </div>
+
+
+                        <!-- KARTU PELAYANAN PUBLIK -->
+                        <div class="value-item">
+                            <span class="value-icon">🌟</span>
+
+                            <div>
+                                <strong>Pelayanan Publik</strong>
+                                <small>
+                                    Mendorong pelayanan yang baik
+                                </small>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= GALERI LINGKUNGAN ASRI ================= -->
+                    <div
+                        class="environment-details"
+                        id="environmentDetails"
+                        hidden>
+
+                        <div class="environment-detail-heading">
+                            <span class="section-label">LINGKUNGAN KITA</span>
+
+                            <h3>Menjaga Bergas Lor Tetap Asri</h3>
+
+                            <p>
+                                Lingkungan yang bersih dan nyaman
+                                dimulai dari kepedulian bersama.
+                                Mari menjaga kebersihan, merawat
+                                tanaman, dan membangun kebiasaan
+                                baik di sekitar kita.
+                            </p>
+                        </div>
+
+                        <div class="environment-gallery">
+
+                            <figure class="environment-card">
+                                <img
+                                    src="wayang.jpg"
+                                    alt="Dokumentasi budaya pagelaran wayang di Bergas Lor"
+                                    loading="lazy"
+                                    onerror="this.onerror=null; this.src='foto1.png';">
+
+                                <figcaption>
+                                    <strong>Budaya Pagelaran Wayang</strong>
+                                    <span>
+                                        Dokumentasi kegiatan budaya di
+                                        Kelurahan Bergas Lor.
+                                    </span>
+                                </figcaption>
+                            </figure>
+
+
+                            <figure class="environment-card">
+                                <img
+                                    src="petani.jpg"
+                                    alt="Lahan pertanian di Kelurahan Bergas Lor"
+                                    loading="lazy"
+                                    onerror="this.onerror=null; this.src='foto1.png';">
+
+                                <figcaption>
+                                    <strong>Lahan Pertanian</strong>
+                                    <span>
+                                        Potensi pertanian dan kehidupan
+                                        masyarakat setempat.
+                                    </span>
+                                </figcaption>
+                            </figure>
+
+
+                            <figure class="environment-card">
+                                <img
+                                    src="gunung.jpg"
+                                    alt="Pemandangan alam di sekitar Bergas Lor"
+                                    loading="lazy"
+                                    onerror="this.onerror=null; this.src='foto1.png';">
+
+                                <figcaption>
+                                    <strong>Pemandangan Alam</strong>
+                                    <span>
+                                        Menjaga keindahan dan kenyamanan
+                                        lingkungan sekitar.
+                                    </span>
+                                </figcaption>
+                            </figure>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="environment-close"
+                            id="environmentClose">
+                            Tutup Galeri ▲
+                        </button>
+
+                    </div>
+                    <!-- AKHIR GALERI LINGKUNGAN ASRI -->
+
+
+                    <!-- ================= GALERI DOKUMENTASI KKN ================= -->
+                    <div
+                        class="kkn-details"
+                        id="kknDetails"
+                        hidden>
+
+                        <div class="kkn-heading">
+                            <span class="section-label">KENANGAN KKN di Kelurahan Bergas Lor</span>
+
+                            <h3>Dokumentasi Kegiatan KKN</h3>
+
+                            <p>
+                                Kumpulan dokumentasi kegiatan mahasiswa
+                                KKN bersama masyarakat
+                                Kelurahan Bergas Lor.
+                            </p>
+                        </div>
+
+
+                        <div class="kkn-gallery">
+
+                            <figure class="kkn-card">
+                                <img src="upgris1.jpg" alt="Dokumentasi kegiatan KKN 1" loading="lazy">
+                                <figcaption>Kegiatan KKN UPGRIS Bantuan Pembagian Bantuan Sosial</figcaption>
+                            </figure>
+
+                            <figure class="kkn-card">
+                                <img src="upgris2.jpg" alt="Dokumentasi kegiatan KKN 2" loading="lazy">
+                                <figcaption>Kegitan KKN UPGRIS Gotong Royong Revitalisasi Taman Toga</figcaption>
+                            </figure>
+
+                            <figure class="kkn-card">
+                                <img src="fotobersamalurah.jpg" alt="Dokumentasi kegiatan KKN 3" loading="lazy">
+                                <figcaption>Foto Penerjunan KKN UNNES 17 Bersama Pak LurahBergas Lor</figcaption>
+                            </figure>
+
+                            <figure class="kkn-card">
+                                <img src="fotobersamarw.jpg" alt="Dokumentasi kegiatan KKN 4" loading="lazy">
+                                <figcaption>Foto Bersama Ketua RW KKN UNNES 17 </figcaption>
+                            </figure>
+
+                            <figure class="kkn-card">
+                                <img src="fotoposyandu.jpg" alt="Dokumentasi kegiatan KKN 5" loading="lazy">
+                                <figcaption>Kegiatan Posyandu Kelurahan Bergas Lor KKN UNNES 17</figcaption>
+                            </figure>
+
+                            <figure class="kkn-card">
+                                <img src="fototpq.jpg" alt="Dokumentasi kegiatan KKN 6" loading="lazy">
+                                <figcaption>Foto Kegiatan Belajar Mengaji Bersama Anak-anak di TPQ KKN UNNES 17</figcaption>
+                            </figure>
+
+                            <figure class="kkn-card">
+                                <img src="foto bimbel.jpg" alt="Dokumentasi kegiatan KKN 7" loading="lazy">
+                                <figcaption>Kegiatan Bimbel KKN UNNES 17</figcaption>
+                            </figure>
+
+                            <figure class="kkn-card">
+                                <img src="tahlihan.jpg" alt="Dokumentasi kegiatan KKN 8" loading="lazy">
+                                <figcaption>Kegiatan Tahlihan Bersama KKN UNNES 17</figcaption>
+                            </figure>
+
+                            <figure class="kkn-card">
+                                <img src="fotokepalasekolah.jpg" alt="Dokumentasi kegiatan KKN 9" loading="lazy">
+                                <figcaption>Kegiatan Sosialisai dan Foto Bersama Kepala Sekolah MI Arrosyad </figcaption>
+                            </figure>
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="kkn-close"
+                            id="kknClose">
+                            Tutup Galeri ▲
+                        </button>
+
+                    </div>
+                    <!-- AKHIR GALERI DOKUMENTASI KKN -->
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SAMBUTAN LURAH ================= -->
+        <section class="greeting-section" id="sambutan">
+
+            <div class="greeting-container">
+
+                <!-- FOTO LURAH -->
+                <div class="greeting-photo">
+
+                    <img
+                        src="paklurah.jpg"
+                        alt="Foto Lurah Bergas Lor, Muhammad Mustain, S.E."
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                    <div class="photo-placeholder">
+                        <span>👤</span>
+                        <strong>Foto Lurah</strong>
+                        <small>Tambahkan foto resmi Lurah di sini</small>
+                    </div>
+
+                    <div class="photo-label">
+                        <span class="label-dot"></span>
+                        MUHAMMAD MUSTAIN, S.E.
+                    </div>
+
+                </div>
+
+
+                <!-- TEKS SAMBUTAN -->
+                <div class="greeting-content">
+
+                    <span class="section-label">SAMBUTAN LURAH</span>
+
+                    <h2>
+                        Salam Hangat untuk<br>
+                        <span>Masyarakat Bergas Lor</span>
+                    </h2>
+
+                    <div class="quote-mark">“</div>
+
+                    <div class="greeting-text">
+
+                        <p>
+                            Assalamu’alaikum warahmatullahi wabarakatuh.
+                        </p>
+
+                        <p>
+                            Puji syukur kita panjatkan ke hadirat Tuhan
+                            Yang Maha Esa. Selamat datang di website
+                            Kelurahan Bergas Lor, sebuah media informasi
+                            yang diharapkan dapat mendekatkan pemerintah
+                            kelurahan dengan masyarakat.
+                        </p>
+
+                        <p>
+                            Website ini diharapkan menjadi sarana untuk
+                            memperoleh informasi mengenai profil
+                            kelurahan, kegiatan masyarakat, potensi
+                            wilayah, dan pelayanan publik. Kami juga
+                            berharap media ini dapat mendukung komunikasi
+                            yang lebih terbuka antara pemerintah dan warga.
+                        </p>
+
+                        <p>
+                            Mari kita terus menjaga kebersamaan,
+                            meningkatkan kepedulian terhadap lingkungan,
+                            serta berpartisipasi dalam membangun
+                            Kelurahan Bergas Lor yang lebih baik,
+                            nyaman, dan sejahtera.
+                        </p>
+
+                        <p>
+                            Terima kasih atas dukungan dan partisipasi
+                            seluruh masyarakat.
+                        </p>
+
+                        <p>
+                            Wassalamu’alaikum warahmatullahi wabarakatuh.
+                        </p>
+
+                    </div>
+
+                    <div class="greeting-signature">
+                        <span>Hormat kami,</span>
+                        <strong>Lurah Bergas Lor</strong>
+                        <small>MUHAMMAD MUSTAIN, S.E.</small>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= AJAKAN ================= -->
+        <section class="community-section">
+
+            <div>
+                <span class="section-label">
+                    BERSAMA MEMBANGUN KELURAHAN
+                </span>
+
+                <h2>Bergas Lor, Tumbuh Bersama</h2>
+
+                <p>
+                    Mari berpartisipasi menjaga lingkungan dan
+                    mendukung perkembangan Kelurahan Bergas Lor.
+                </p>
+            </div>
+
+            <a href="informasi.html" class="btn-light">
+                Lihat Informasi <span>→</span>
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <a href="index.html" class="footer-brand">Bergas Lor</a>
+
+        <p>Website Informasi Kelurahan Bergas Lor</p>
+
+        <span>Kabupaten Semarang, Jawa Tengah</span>
+
+        <div class="footer-line"></div>
+
+        <small>
+            © KKN UNNES GIAT 17 · Kelurahan Bergas Lor
+        </small>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        
+/* ========================================
+   1. MENU NAVIGASI RESPONSIF
+======================================== */
+
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+// Buka dan tutup menu navigasi
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", function () {
+        const isOpen = navMenu.classList.toggle("show");
+
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
+        );
+
+        menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Tutup menu ketika tautan dipilih
+    navMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navMenu.classList.remove("show");
+
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Buka menu navigasi");
+            menuToggle.textContent = "☰";
+        });
+    });
+
+    // Tutup menu jika pengguna menekan tombol Escape
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && navMenu.classList.contains("show")) {
+            navMenu.classList.remove("show");
+
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Buka menu navigasi");
+            menuToggle.textContent = "☰";
+
+            menuToggle.focus();
+        }
+    });
+
+    // Tutup menu jika pengguna kembali ke tampilan desktop
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 800) {
+            navMenu.classList.remove("show");
+
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Buka menu navigasi");
+            menuToggle.textContent = "☰";
+        }
+    });
+}
+
+
+/* ========================================
+   2. GALERI LINGKUNGAN ASRI
+======================================== */
+
+const environmentToggle = document.getElementById("environmentToggle");
+const environmentDetails = document.getElementById("environmentDetails");
+const environmentClose = document.getElementById("environmentClose");
+const toggleArrow = document.getElementById("toggleArrow");
+
+// Fungsi untuk membuka atau menutup galeri lingkungan
+function setEnvironmentDetails(isOpen) {
+    if (!environmentToggle || !environmentDetails) return;
+
+    environmentDetails.hidden = !isOpen;
+
+    environmentToggle.setAttribute("aria-expanded", String(isOpen));
+
+    if (toggleArrow) {
+        toggleArrow.textContent = isOpen ? "−" : "＋";
+    }
+
+    if (isOpen) {
+        environmentDetails.scrollIntoView({
+            behavior: window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches ? "auto" : "smooth",
+            block: "nearest"
+        });
+    }
+}
+
+// Klik kartu Lingkungan Asri
+if (environmentToggle && environmentDetails) {
+    environmentToggle.addEventListener("click", function () {
+        const isOpen =
+            environmentToggle.getAttribute("aria-expanded") === "true";
+
+        setEnvironmentDetails(!isOpen);
+    });
+}
+
+// Klik tombol tutup galeri lingkungan
+if (environmentClose) {
+    environmentClose.addEventListener("click", function () {
+        setEnvironmentDetails(false);
+
+        if (environmentToggle) {
+            environmentToggle.focus();
+        }
+    });
+}
+
+
+/* ========================================
+   3. GALERI DOKUMENTASI KEGIATAN KKN
+======================================== */
+
+const kknToggle = document.getElementById("kknToggle");
+const kknDetails = document.getElementById("kknDetails");
+const kknClose = document.getElementById("kknClose");
+const kknArrow = document.getElementById("kknArrow");
+
+// Fungsi membuka dan menutup galeri 15 foto KKN
+function setKknGallery(isOpen) {
+    if (!kknToggle || !kknDetails) return;
+
+    kknDetails.hidden = !isOpen;
+
+    kknToggle.setAttribute("aria-expanded", String(isOpen));
+
+    if (kknArrow) {
+        kknArrow.textContent = isOpen ? "−" : "＋";
+    }
+
+    // Arahkan layar ke galeri saat dibuka
+    if (isOpen) {
+        kknDetails.scrollIntoView({
+            behavior: window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches ? "auto" : "smooth",
+            block: "nearest"
+        });
+    }
+}
+
+// Klik kartu Dokumentasi Kegiatan KKN
+if (kknToggle && kknDetails) {
+    kknToggle.addEventListener("click", function () {
+        const isOpen =
+            kknToggle.getAttribute("aria-expanded") === "true";
+
+        setKknGallery(!isOpen);
+    });
+}
+
+// Klik tombol tutup galeri KKN
+if (kknClose) {
+    kknClose.addEventListener("click", function () {
+        setKknGallery(false);
+
+        if (kknToggle) {
+            kknToggle.focus();
+        }
+    });
+}
+
+
+/* ========================================
+   4. EFEK FOTO GALERI
+======================================== */
+
+// Tambahkan penanganan jika file foto tidak ditemukan.
+// Foto yang gagal dimuat akan diberi tampilan alternatif.
+document.querySelectorAll(
+    ".kkn-card img, .environment-card img"
+).forEach(function (img) {
+    img.addEventListener("error", function () {
+        this.alt = "Foto belum tersedia: " + this.alt;
+        this.classList.add("image-unavailable");
+    });
+});
+
+
+/* ========================================
+   5. TAHUN OTOMATIS FOOTER (OPSIONAL)
+======================================== */
+
+// Jika nanti footer memiliki elemen dengan id="currentYear",
+// tahun akan diperbarui secara otomatis.
+const currentYear = document.getElementById("currentYear");
+
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+}
+
+    </script>
+
+</body>
+</html>
