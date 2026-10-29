@@ -1,0 +1,1173 @@
+
+/* =====================================================
+   INFORMASI KELURAHAN BERGAS LOR
+   UMKM, SEKOLAH, DAN LAYANAN MASYARAKAT
+===================================================== */
+
+/* ================= ROOT VARIABLES ================= */
+:root {
+    --green-dark: #104d2a;
+    --green: #176b3a;
+    --green-light: #eaf5ec;
+    --green-soft: #f5f8f4;
+
+    --yellow: #f5c542;
+    --yellow-light: #fff9e6;
+
+    --white: #ffffff;
+    --text: #29372d;
+    --text-muted: #68746b;
+    --border: #e5ebe5;
+
+    --shadow: 0 5px 22px rgba(20, 65, 35, 0.07);
+    --shadow-hover: 0 12px 30px rgba(20, 65, 35, 0.14);
+
+    --radius: 14px;
+    --radius-small: 10px;
+
+    --container: 1160px;
+    --header-height: 78px;
+}
+
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font: inherit;
+}
+
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+.container {
+    width: min(var(--container), calc(100% - 48px));
+    margin-inline: auto;
+}
+
+
+/* ================= HEADER ================= */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    min-height: var(--header-height);
+    background: var(--white);
+    border-bottom: 1px solid rgba(229, 235, 229, 0.9);
+    box-shadow: 0 3px 14px rgba(20, 65, 35, 0.04);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: var(--header-height);
+}
+
+
+/* Logo */
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.logo-text strong {
+    color: var(--green-dark);
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.logo-text span {
+    margin-top: 3px;
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+
+/* Menu navigasi desktop */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.nav-menu a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 13px;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        color 0.25s ease,
+        background 0.25s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--green);
+    background: var(--green-light);
+}
+
+.nav-menu a.active::after {
+    position: absolute;
+    right: 13px;
+    bottom: 4px;
+    left: 13px;
+    height: 2px;
+    background: var(--yellow);
+    border-radius: 2px;
+    content: "";
+}
+
+
+/* Tombol menu mobile */
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 21px;
+    height: 2px;
+    border-radius: 3px;
+    background: var(--green-dark);
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:first-child {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ================= MENU KATEGORI ================= */
+.info-menu {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 900;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+}
+
+.info-menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: min(var(--container), calc(100% - 48px));
+    margin-inline: auto;
+    padding: 12px 0;
+}
+
+.info-menu-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 20px;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    color: var(--text-muted);
+    background: transparent;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+.info-menu-item:hover {
+    color: var(--green);
+    background: var(--green-light);
+}
+
+.info-menu-item.active {
+    color: var(--green-dark);
+    background: var(--yellow-light);
+    border-color: #f0df9f;
+}
+
+.menu-icon {
+    font-size: 17px;
+    line-height: 1;
+}
+
+
+/* ================= HERO ================= */
+.info-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 400px;
+    padding: 78px 0;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(245, 197, 66, 0.20),
+            transparent 28%
+        ),
+        linear-gradient(
+            120deg,
+            #f5f8f4 0%,
+            #eaf5ec 55%,
+            #fff9e6 100%
+        );
+}
+
+.info-hero::before {
+    position: absolute;
+    top: -100px;
+    right: -80px;
+    width: 330px;
+    height: 330px;
+    border: 45px solid rgba(23, 107, 58, 0.06);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.info-hero::after {
+    position: absolute;
+    right: 12%;
+    bottom: -160px;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: rgba(245, 197, 66, 0.10);
+    content: "";
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 7px 13px;
+    border: 1px solid rgba(23, 107, 58, 0.13);
+    border-radius: 30px;
+    color: var(--green);
+    background: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.hero-label::before {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--yellow);
+    content: "";
+}
+
+.hero-content h1 {
+    max-width: 760px;
+    color: var(--green-dark);
+    font-size: clamp(34px, 5vw, 56px);
+    font-weight: 850;
+    line-height: 1.16;
+    letter-spacing: -1.4px;
+}
+
+.hero-content h1 span {
+    display: block;
+    color: var(--green);
+}
+
+.hero-content p {
+    max-width: 630px;
+    margin-top: 20px;
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+    padding: 13px 23px;
+    border: 2px solid var(--green);
+    border-radius: 9px;
+    color: var(--white);
+    background: var(--green);
+    font-size: 14px;
+    font-weight: 750;
+    text-decoration: none;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.btn-primary:hover {
+    color: var(--green-dark);
+    background: var(--yellow);
+    border-color: var(--yellow);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+
+/* ================= BAGIAN UMUM ================= */
+.umkm-section,
+.school-section,
+.public-service-section {
+    padding: 78px 0;
+}
+
+.umkm-section {
+    background: var(--white);
+}
+
+.school-section {
+    background: var(--green-soft);
+}
+
+.public-service-section {
+    background: var(--white);
+}
+
+.section-heading {
+    max-width: 760px;
+    margin: 0 auto 38px;
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.section-heading h2 {
+    color: var(--green-dark);
+    font-size: clamp(26px, 3.5vw, 36px);
+    font-weight: 850;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+}
+
+.section-heading p {
+    max-width: 650px;
+    margin: 13px auto 0;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* ================= GRID KARTU ================= */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 28px;
+}
+
+
+/* ================= KARTU UMKM, SEKOLAH, LAYANAN ================= */
+.info-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.info-card:hover {
+    border-color: #cbdccc;
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+}
+
+
+/* Gambar kartu */
+.info-card-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: var(--green-light);
+}
+
+.info-card-image::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 55px;
+    background: linear-gradient(
+        to top,
+        rgba(16, 77, 42, 0.13),
+        transparent
+    );
+    content: "";
+    pointer-events: none;
+}
+
+.info-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.45s ease;
+}
+
+.info-card:hover .info-card-image img {
+    transform: scale(1.045);
+}
+
+
+/* Isi kartu */
+.info-card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 23px;
+}
+
+.card-category {
+    display: inline-block;
+    margin-bottom: 11px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--green);
+    background: var(--green-light);
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 0.7px;
+    line-height: 1.5;
+}
+
+.info-card-content h3 {
+    width: 100%;
+    margin-bottom: 12px;
+    color: var(--green-dark);
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.info-card-content p {
+    width: 100%;
+    margin-bottom: 0;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+
+/* ================= PETA GOOGLE MAPS ================= */
+.umkm-location {
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 17px;
+    border-top: 1px solid var(--border);
+}
+
+.umkm-location h4 {
+    margin: 0 0 12px;
+    color: var(--green-dark);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.umkm-map {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+    background: var(--green-light);
+}
+
+.umkm-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.umkm-map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.6;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.umkm-map-link:hover {
+    color: var(--green-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+
+/* ================= CATATAN INFORMASI ================= */
+.info-note {
+    margin-top: 30px;
+    padding: 19px 22px;
+    border: 1px solid #e9dfb6;
+    border-left: 4px solid var(--yellow);
+    border-radius: 10px;
+    background: var(--yellow-light);
+}
+
+.info-note strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--green-dark);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.info-note p {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* ================= LAYANAN MASYARAKAT ================= */
+/*
+   Bagian layanan menggunakan .info-grid dan .info-card
+   supaya bentuk kartu sama dengan UMKM dan Sekolah.
+*/
+
+.public-service-section .info-card {
+    background: var(--white);
+}
+
+.public-service-section .info-card-content {
+    padding: 23px;
+}
+
+.public-service-section .info-card-content h3 {
+    font-size: 18px;
+}
+
+.public-service-section .info-card-content > .umkm-map-link {
+    margin-top: auto;
+    padding-top: 17px;
+}
+
+.service-disclaimer {
+    margin-top: 30px;
+    padding: 18px 22px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--green-soft);
+}
+
+.service-disclaimer p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.service-disclaimer strong {
+    color: var(--green-dark);
+}
+
+
+/* ================= AJAKAN KONTAK ================= */
+.info-cta {
+    position: relative;
+    overflow: hidden;
+    padding: 55px 0;
+    background: var(--green-dark);
+}
+
+.info-cta::before {
+    position: absolute;
+    top: -100px;
+    right: -60px;
+    width: 280px;
+    height: 280px;
+    border: 35px solid rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.cta-content > div {
+    max-width: 720px;
+}
+
+.cta-content .section-label {
+    color: var(--yellow);
+}
+
+.cta-content h2 {
+    margin-bottom: 12px;
+    color: var(--white);
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 850;
+    line-height: 1.35;
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.cta-content .btn-primary {
+    flex-shrink: 0;
+    margin-top: 0;
+    border-color: var(--yellow);
+    color: var(--green-dark);
+    background: var(--yellow);
+}
+
+.cta-content .btn-primary:hover {
+    border-color: var(--white);
+    background: var(--white);
+}
+
+
+/* ================= FOOTER ================= */
+.footer {
+    color: var(--white);
+    background: #0b3920;
+}
+
+.footer-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    padding-top: 43px;
+    padding-bottom: 38px;
+}
+
+.footer-brand {
+    max-width: 390px;
+}
+
+.footer-brand h2 {
+    margin-bottom: 10px;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 850;
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px 22px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--yellow);
+}
+
+.footer-bottom {
+    padding: 17px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 12px;
+}
+
+
+/* ================= FOCUS AKSESIBILITAS ================= */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 4px;
+}
+
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+    :root {
+        --header-height: 72px;
+    }
+
+    .container {
+        width: min(100% - 36px, var(--container));
+    }
+
+    .navbar {
+        gap: 14px;
+    }
+
+    .nav-menu {
+        gap: 2px;
+    }
+
+    .nav-menu a {
+        padding: 9px 9px;
+        font-size: 12px;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .info-card-image {
+        height: 230px;
+    }
+
+    .info-menu-container {
+        width: calc(100% - 36px);
+    }
+
+    .umkm-section,
+    .school-section,
+    .public-service-section {
+        padding: 65px 0;
+    }
+
+    .info-hero {
+        min-height: 360px;
+        padding: 65px 0;
+    }
+}
+
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 68px;
+    }
+
+    .container {
+        width: calc(100% - 32px);
+    }
+
+    .navbar {
+        position: relative;
+        min-height: var(--header-height);
+    }
+
+    .logo {
+        gap: 9px;
+    }
+
+    .logo img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .logo-text strong {
+        font-size: 15px;
+    }
+
+    .logo-text span {
+        font-size: 10px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-shrink: 0;
+    }
+
+    /* Menu dropdown */
+    .nav-menu {
+        position: absolute;
+        top: calc(100% + 1px);
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 5px;
+        max-height: calc(100vh - var(--header-height) - 16px);
+        padding: 14px;
+        overflow-y: auto;
+        border: 1px solid var(--border);
+        border-radius: 0 0 12px 12px;
+        background: var(--white);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .nav-menu a {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    .nav-menu a.active::after {
+        display: none;
+    }
+
+    /* Menu kategori */
+    .info-menu {
+        top: var(--header-height);
+    }
+
+    .info-menu-container {
+        justify-content: flex-start;
+        gap: 8px;
+        width: 100%;
+        padding: 10px 16px;
+        overflow-x: auto;
+        scrollbar-width: thin;
+    }
+
+    .info-menu-item {
+        flex-shrink: 0;
+        gap: 6px;
+        padding: 9px 13px;
+        font-size: 12px;
+    }
+
+    .menu-icon {
+        font-size: 15px;
+    }
+
+    /* Hero */
+    .info-hero {
+        min-height: auto;
+        padding: 62px 0;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(32px, 7vw, 45px);
+        letter-spacing: -0.8px;
+    }
+
+    .hero-content p {
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+    .hero-label {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .btn-primary {
+        padding: 12px 18px;
+        font-size: 13px;
+    }
+
+    /* Bagian */
+    .umkm-section,
+    .school-section,
+    .public-service-section {
+        padding: 55px 0;
+    }
+
+    .section-heading {
+        margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    .section-heading p {
+        font-size: 13px;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .info-card-image {
+        height: 190px;
+    }
+
+    .info-card-content {
+        padding: 18px;
+    }
+
+    .info-card-content h3 {
+        font-size: 17px;
+    }
+
+    .info-card-content p {
+        font-size: 12px;
+    }
+
+    .card-category {
+        font-size: 9px;
+    }
+
+    .umkm-map {
+        height: 190px;
+    }
+
+    /* CTA */
+    .info-cta {
+        padding: 45px 0;
+    }
+
+    .cta-content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .cta-content h2 {
+        font-size: 27px;
+    }
+
+    .cta-content .btn-primary {
+        margin-top: 0;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: 25px;
+        padding-top: 35px;
+        padding-bottom: 30px;
+    }
+
+    .footer-links {
+        justify-content: flex-start;
+        gap: 12px 18px;
+    }
+}
+
+
+/* ================= MOBILE KECIL ================= */
+@media (max-width: 480px) {
+    .container {
+        width: calc(100% - 28px);
+    }
+
+    .info-hero {
+        padding: 48px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .info-menu-container {
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    .info-menu-item {
+        padding: 8px 11px;
+        font-size: 11px;
+    }
+
+    .umkm-section,
+    .school-section,
+    .public-service-section {
+        padding: 45px 0;
+    }
+
+    .section-heading h2 {
+        font-size: 24px;
+    }
+
+    /* Satu kolom pada HP kecil */
+    .info-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .info-card-image {
+        height: 225px;
+    }
+
+    .info-card-content {
+        padding: 20px;
+    }
+
+    .info-card-content h3 {
+        font-size: 19px;
+    }
+
+    .info-card-content p {
+        font-size: 13px;
+    }
+
+    .umkm-map {
+        height: 200px;
+    }
+
+    .info-note,
+    .service-disclaimer {
+        padding: 16px;
+    }
+
+    .cta-content h2 {
+        font-size: 25px;
+    }
+
+    .footer-brand h2 {
+        font-size: 18px;
+    }
+
+    .footer-links {
+        gap: 12px 16px;
+    }
+}
+
+
+/* ================= AKSESIBILITAS GERAK ================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

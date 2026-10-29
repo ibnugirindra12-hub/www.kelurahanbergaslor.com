@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Beranda | Kelurahan Bergas Lor</title>
+
+    <meta name="description" content="Website informasi Kelurahan Bergas Lor, Kabupaten Semarang, Jawa Tengah.">
+
+    <meta name="theme-color" content="#14532d">
+
+    <!-- Favicon menggunakan file Logo Bergas -->
+    <link rel="icon" href="Logo Bergas.png" type="image/png">
+
+    <style>
+        /* =========================
+            RESET DAN VARIABEL
+        ========================= */
+        :root {
+            --green-dark: #123d26;
+            --green: #176b3a;
+            --green-light: #eaf5ec;
+            --yellow: #f5c542;
+            --white: #ffffff;
+            --text: #26382c;
+            --muted: #6c796f;
+            --border: #e6ece6;
+            --shadow: 0 15px 45px rgba(18, 61, 38, 0.10);
+            --radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        /* =========================
+            ANIMASI LOGO
+        ========================= */
+        @keyframes floatLogo {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-4px) rotate(1.5deg);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(23, 107, 58, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 0 8px rgba(23, 107, 58, 0);
+            }
+        }
+
+        /* =========================
+            NAVBAR & LOGO
+        ========================= */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            min-height: 84px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 10px;
+            display: block;
+            animation: floatLogo 4s ease-in-out infinite;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .brand:hover .brand-logo {
+            transform: scale(1.08) rotate(5deg);
+            filter: brightness(1.05);
+            animation-play-state: paused;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.35;
+        }
+
+        .brand-text strong {
+            color: var(--green-dark);
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-text span {
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-menu a {
+            padding: 10px 12px;
+            color: #58675c;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: 0.25s ease;
+        }
+
+        .nav-menu a:hover {
+            background: var(--green-light);
+            color: var(--green);
+        }
+
+        .nav-menu a.active {
+            background: var(--green-light);
+            color: var(--green);
+        }
+
+        .nav-menu .nav-highlight {
+            margin-left: 5px;
+            padding: 11px 15px;
+            background: var(--green);
+            color: var(--white);
+            border-radius: 11px;
+        }
+
+        .nav-menu .nav-highlight:hover {
+            background: var(--green-dark);
+            color: var(--white);
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--green-dark);
+            background: var(--white);
+            font-size: 23px;
+            cursor: pointer;
+        }
+
+        /* =========================
+            HERO / BERANDA
+        ========================= */
+        .hero {
+            position: relative;
+            min-height: calc(100vh - 84px);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-bottom: 58px;
+            background:
+                radial-gradient(
+                    circle at 8% 15%,
+                    rgba(245, 197, 66, 0.12),
+                    transparent 27%
+                ),
+                linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    #f7faf6 56%,
+                    #edf6ec 100%
+                );
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(23, 107, 58, 0.08);
+            border-radius: 50%;
+            top: -280px;
+            right: -100px;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: rgba(245, 197, 66, 0.12);
+            bottom: -250px;
+            left: 35%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 60px;
+            padding-top: 65px;
+            padding-bottom: 65px;
+        }
+
+        .hero-text {
+            max-width: 610px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 14px;
+            background: var(--green-light);
+            color: var(--green);
+            border: 1px solid rgba(23, 107, 58, 0.08);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.1px;
+            margin-bottom: 25px;
+        }
+
+        .hero-label::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: var(--yellow);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            color: var(--green-dark);
+            font-size: clamp(38px, 4.5vw, 62px);
+            font-weight: 800;
+            line-height: 1.13;
+            letter-spacing: -2.1px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: var(--green);
+        }
+
+        .hero-description {
+            max-width: 510px;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 32px;
+        }
+
+        /* =========================
+            TIGA TOMBOL UTAMA
+        ========================= */
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn {
+            min-height: 49px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 12px 17px;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(23, 107, 58, 0.18);
+        }
+
+        .btn-primary:hover {
+            background: var(--green-dark);
+            box-shadow: 0 12px 25px rgba(23, 107, 58, 0.22);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--green);
+            border-color: #dce8dc;
+        }
+
+        .btn-secondary:hover {
+            background: var(--green-light);
+        }
+
+        /* =========================
+            GAMBAR UTAMA
+        ========================= */
+        .hero-visual {
+            position: relative;
+            min-width: 0;
+        }
+
+        .hero-image-frame {
+            position: relative;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            transform: rotate(1deg);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 425px;
+            object-fit: cover;
+            border-radius: 20px;
+            background: #dfeade;
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 12px;
+            border-radius: 20px;
+            background: linear-gradient(
+                to top,
+                rgba(12, 42, 23, 0.55),
+                transparent 55%
+            );
+            pointer-events: none;
+        }
+
+        .image-caption {
+            position: absolute;
+            left: 32px;
+            right: 32px;
+            bottom: 32px;
+            z-index: 2;
+            color: var(--white);
+            transform: rotate(-1deg);
+        }
+
+        .image-caption small {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .image-caption strong {
+            font-size: 21px;
+            line-height: 1.3;
+        }
+
+        .floating-badge {
+            position: absolute;
+            z-index: 3;
+            top: 35px;
+            left: -28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--white);
+            border: 1px solid rgba(230, 236, 230, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 35px rgba(18, 61, 38, 0.12);
+            animation: pulseGlow 3s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-badge:hover {
+            transform: translateY(-5px) scale(1.03);
+        }
+
+        .floating-logo {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 8px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-badge:hover .floating-logo {
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        .floating-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .floating-text strong {
+            color: var(--green-dark);
+            font-size: 12px;
+        }
+
+        .floating-text span {
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        .decorative-dot {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            right: -20px;
+            bottom: -20px;
+            z-index: -1;
+            background-image: radial-gradient(
+                var(--green) 1.5px,
+                transparent 1.5px
+            );
+            background-size: 12px 12px;
+            opacity: 0.25;
+        }
+
+        /* =========================
+            BAGIAN BAWAH HERO
+        ========================= */
+        .hero-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 3;
+            border-top: 1px solid rgba(23, 107, 58, 0.09);
+            background: rgba(255, 255, 255, 0.65);
+        }
+
+        .hero-footer-inner {
+            min-height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .footer-location {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .footer-location span {
+            color: var(--green);
+        }
+
+        .footer-note {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        /* =========================
+            HALAMAN KONTAK
+        ========================= */
+        .contact-section {
+            padding: 90px 0;
+            background: #fcfdfc;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            color: var(--green-dark);
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .section-header p {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-info-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info-card h3 {
+            color: var(--green-dark);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--green-light);
+            color: var(--green);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-details strong {
+            display: block;
+            color: var(--green-dark);
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .contact-details p, .contact-details a {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .contact-details a:hover {
+            color: var(--green);
+            text-decoration: underline;
+        }
+
+        .contact-form-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form-card h3 {
+            color: var(--green-dark);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 13px;
+            color: var(--text);
+            background: #fafafa;
+            transition: all 0.25s ease;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--green);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(23, 107, 58, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* =========================
+            RESPONSIVE HALAMAN KONTAK
+        ========================= */
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* =========================
+            TABLET
+        ========================= */
+        @media (max-width: 1100px) {
+            .nav-container {
+                gap: 15px;
+            }
+
+            .nav-menu a {
+                padding: 9px 9px;
+                font-size: 11px;
+            }
+
+            .nav-menu .nav-highlight {
+                padding: 10px 12px;
+            }
+
+            .hero-content {
+                gap: 35px;
+            }
+
+            .hero h1 {
+                font-size: clamp(36px, 4.8vw, 52px);
+            }
+
+            .hero-image {
+                height: 370px;
+            }
+
+            .hero-buttons {
+                gap: 9px;
+            }
+
+            .btn {
+                padding: 12px 13px;
+                font-size: 11px;
+            }
+
+            .floating-badge {
+                left: -15px;
+            }
+        }
+
+        /* =========================
+            MOBILE
+        ========================= */
+        @media (max-width: 760px) {
+            .container {
+                width: min(100% - 36px, 560px);
+            }
+
+            .nav-container {
+                min-height: 72px;
+            }
+
+            .brand-logo {
+                width: 43px;
+                height: 43px;
+            }
+
+            .brand-text strong {
+                font-size: 13px;
+            }
+
+            .brand-text span {
+                font-size: 10px;
+            }
+
+            .menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: calc(100% + 1px);
+                left: 0;
+                right: 0;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 5px;
+                padding: 16px 20px 20px;
+                background: var(--white);
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 18px 25px rgba(18, 61, 38, 0.08);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                padding: 13px 14px;
+                font-size: 13px;
+            }
+
+            .nav-menu .nav-highlight {
+                margin: 5px 0 0;
+                text-align: center;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-bottom: 58px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 42px;
+                padding-top: 55px;
+                padding-bottom: 55px;
+            }
+
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .hero-label {
+                font-size: 9px;
+                margin-bottom: 20px;
+            }
+
+            .hero h1 {
+                font-size: clamp(36px, 9vw, 48px);
+                letter-spacing: -1.5px;
+                margin-bottom: 18px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+                line-height: 1.8;
+                margin-bottom: 25px;
+            }
+
+            .hero-buttons {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                min-height: 49px;
+                font-size: 13px;
+            }
+
+            .hero-visual {
+                width: calc(100% - 10px);
+                margin: 0 auto;
+            }
+
+            .hero-image-frame {
+                padding: 8px;
+                border-radius: 22px;
+            }
+
+            .hero-image {
+                height: 300px;
+                border-radius: 16px;
+            }
+
+            .image-overlay {
+                inset: 8px;
+                border-radius: 16px;
+            }
+
+            .image-caption {
+                left: 23px;
+                right: 23px;
+                bottom: 24px;
+            }
+
+            .image-caption strong {
+                font-size: 18px;
+            }
+
+            .floating-badge {
+                top: -18px;
+                left: -8px;
+                gap: 8px;
+                padding: 10px 12px;
+            }
+
+            .floating-logo {
+                width: 35px;
+                height: 35px;
+            }
+
+            .floating-text strong {
+                font-size: 10px;
+            }
+
+            .floating-text span {
+                font-size: 9px;
+            }
+
+            .decorative-dot {
+                right: -8px;
+                bottom: -12px;
+                width: 55px;
+                height: 55px;
+            }
+
+            .hero-footer-inner {
+                min-height: 58px;
+                flex-direction: column;
+                justify-content: center;
+                gap: 2px;
+                padding: 10px 0;
+                text-align: center;
+            }
+
+            .footer-location,
+            .footer-note {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .container {
+                width: calc(100% - 28px);
+            }
+
+            .brand {
+                gap: 9px;
+            }
+
+            .brand-logo {
+                width: 39px;
+                height: 39px;
+            }
+
+            .brand-text strong {
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero-image {
+                height: 245px;
+            }
+        }
+
+        /* =========================
+            AKSESIBILITAS
+        ========================= */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid var(--yellow);
+            outline-offset: 4px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+    <header class="navbar">
+        <div class="container nav-container">
+
+            <a
+                href="index.html"
+                class="brand"
+                aria-label="Beranda Kelurahan Bergas Lor">
+
+                <!-- LOGO UTAMA DENGAN ANIMASI -->
+                <img 
+                    src="Logo Bergas.png" 
+                    alt="Logo Kelurahan Bergas Lor" 
+                    class="brand-logo"
+                    onerror="this.onerror=null; this.src='Logo Bergas.jpg';">
+
+                <div class="brand-text">
+                    <strong>BERGAS LOR</strong>
+                    <span>Website Informasi Kelurahan</span>
+                </div>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Buka navigasi"
+                aria-expanded="false"
+                aria-controls="navMenu">
+                ☰
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+
+                <a
+                    href="index.html"
+                    class="active"
+                    aria-current="page">
+                    Beranda
+                </a>
+
+                <a href="profil.html">
+                    Profil
+                </a>
+
+                <a href="pelayanan.html">
+                    Pelayanan
+                </a>
+
+                <a href="informasi.html">
+                    Informasi
+                </a>
+
+                <a href="#kontak">
+                    Kontak
+                </a>
+
+                <a href="pelayanan.html" class="nav-highlight">
+                    Akses Pelayanan →
+                </a>
+
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         KONTEN UTAMA BERANDA
+    ========================= -->
+    <main>
+
+        <section class="hero" id="beranda">
+
+            <div class="container hero-content">
+
+                <!-- TEKS UTAMA -->
+                <div class="hero-text">
+
+                    <div class="hero-label">
+                        WEBSITE RESMI KELURAHAN
+                    </div>
+
+                    <h1>
+                        Selamat Datang di
+                        <span>Kelurahan Bergas Lor</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Membangun lingkungan yang nyaman, memberikan
+                        informasi yang mudah diakses, serta mendukung
+                        masyarakat yang aktif, mandiri, dan sejahtera.
+                    </p>
+
+                    <!-- TIGA TOMBOL -->
+                    <div class="hero-buttons">
+
+                        <a
+                            href="profil.html"
+                            class="btn btn-primary">
+                            Profil Kelurahan
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                        <a
+                            href="informasi.html"
+                            class="btn btn-secondary">
+                            Jelajahi Informasi
+                        </a>
+
+                        <a
+                            href="pelayanan.html"
+                            class="btn btn-secondary">
+                            Informasi Pelayanan
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GAMBAR UTAMA -->
+                <div class="hero-visual">
+
+                    <!-- Floating Badge dengan Logo Bergas & Animasi Denyut -->
+                    <div class="floating-badge">
+                        <img 
+                            src="Logo Bergas.png" 
+                            alt="Logo Bergas" 
+                            class="floating-logo"
+                            onerror="this.onerror=null; this.src='Logo Bergas.jpg';">
+
+                        <div class="floating-text">
+                            <strong>Bergas Lor</strong>
+                            <span>Asri dan Bersahabat</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-image-frame">
+
+                        <img
+                            class="hero-image"
+                            src="https://kelurahanbergaslor.my.id/images/fotogunung.jpg"
+                            alt="Pemandangan alam di sekitar Kelurahan Bergas Lor"
+                            fetchpriority="high"
+                            onerror="this.onerror=null; this.src='images/fotogunung.jpg';">
+
+                        <div class="image-overlay"></div>
+
+                        <div class="image-caption">
+                            <small>Kabupaten Semarang</small>
+                            <strong>Keindahan dan Potensi Bergas Lor</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="decorative-dot"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- KETERANGAN BAGIAN BAWAH -->
+            <div class="hero-footer">
+
+                <div class="container hero-footer-inner">
+
+                    <div class="footer-location">
+                        <span aria-hidden="true">●</span>
+                        Kabupaten Semarang, Jawa Tengah
+                    </div>
+
+                    <div class="footer-note">
+                        Informasi · Pelayanan · Masyarakat
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BAGIAN KONTAK
+        ========================= -->
+        <section class="contact-section" id="kontak">
+            <div class="container">
+                
+                <div class="section-header">
+                    <h2>Hubungi Kami</h2>
+                    <p>Silakan hubungi atau kunjungi kantor Kelurahan Bergas Lor untuk informasi lebih lanjut mengenai pelayanan publik dan kegiatan kemasyarakatan.</p>
+                </div>
+
+                <div class="contact-grid">
+                    
+                    <!-- Kartu Informasi Kontak -->
+                    <div class="contact-info-card">
+                        <h3>Informasi Kantor</h3>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <strong>Alamat Kantor</strong>
+                                <p>Jl. Raya Bergas Lor, Kec. Bergas, Kabupaten Semarang, Jawa Tengah</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-details">
+                                <strong>Telepon</strong>
+                                <a href="tel:+6224000000">(024) 000-0000</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-details">
+                                <strong>Email Resmi</strong>
+                                <a href="mailto:info@kelurahanbergaslor.my.id">info@kelurahanbergaslor.my.id</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">⏰</div>
+                            <div class="contact-details">
+                                <strong>Jam Operasional</strong>
+                                <p>Senin – Kamis: 08.00 - 15.00 WIB<br>Jumat: 08.00 - 11.30 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kartu Formulir Pesan -->
+                    <div class="contact-form-card">
+                        <h3>Kirim Pesan / Aspirasi</h3>
+                        <form action="#" method="POST">
+                            
+                            <div class="form-group">
+                                <label for="name" class="form-label">Nama Lengkap</label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="Masukkan nama Anda" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email / No. WhatsApp</label>
+                                <input type="text" id="email" name="email" class="form-input" placeholder="Contoh: 08123456789" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Pesan / Pertanyaan</label>
+                                <textarea id="message" name="message" class="form-textarea" placeholder="Tuliskan pesan, pertanyaan, atau aduan Anda di sini..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Kirim Pesan Sekarang
+                                <span aria-hidden="true">→</span>
+                            </button>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT NAVBAR
+    ========================= -->
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        if (menuToggle && navMenu) {
+
+            // Membuka dan menutup menu pada perangkat mobile
+            menuToggle.addEventListener("click", function () {
+
+                const isOpen = navMenu.classList.toggle("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    isOpen ? "Tutup navigasi" : "Buka navigasi"
+                );
+
+                menuToggle.textContent = isOpen ? "✕" : "☰";
+
+            });
+
+            // Menutup menu setelah tautan dipilih
+            navMenu.querySelectorAll("a").forEach(function (link) {
+
+                link.addEventListener("click", function () {
+
+                    navMenu.classList.remove("active");
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Buka navigasi"
+                    );
+
+                    menuToggle.textContent = "☰";
+
+                });
+
+            });
+
+        }
+    </script>
+
+</body>
+</html>

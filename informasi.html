@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#145c32">
+    <meta name="description"
+          content="Informasi UMKM, sekolah, dan layanan masyarakat Kelurahan Bergas Lor.">
+
+    <title>Informasi | Kelurahan Bergas Lor</title>
+
+    <!-- Favicon Tab Browser -->
+    <link rel="icon" href="Logo Bergas.jpg">
+
+    <link rel="stylesheet" href="informasi.css">
+
+    <style>
+        /* PETA DAN INFORMASI LOKASI */
+        .umkm-location {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid #e5ebe5;
+        }
+
+        .umkm-location h4 {
+            margin: 0 0 10px;
+            color: #145c32;
+            font-size: 15px;
+        }
+
+        .umkm-map {
+            width: 100%;
+            height: 230px;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #eaf5ec;
+        }
+
+        .umkm-map iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .umkm-map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+            color: #176b3a;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .umkm-map-link:hover {
+            text-decoration: underline;
+        }
+
+        .school-section .section-heading,
+        .public-service-section .section-heading {
+            margin-bottom: 32px;
+        }
+
+        .info-note {
+            margin-top: 28px;
+        }
+
+        .info-note p {
+            margin-bottom: 0;
+        }
+
+        .service-disclaimer {
+            margin-top: 28px;
+        }
+
+        .service-disclaimer p {
+            margin-bottom: 0;
+        }
+
+        .info-card-content > .umkm-map-link {
+            margin-top: 14px;
+        }
+
+        /* ANIMASI LOGO NAVBAR */
+        @keyframes floatLogo {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-3px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.4); }
+            70% { box-shadow: 0 0 0 8px rgba(46, 125, 50, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
+        }
+
+        .navbar .logo img.logo-icon {
+            transition: transform 0.3s ease, filter 0.3s ease;
+            animation: floatLogo 4s ease-in-out infinite;
+            border-radius: 50%;
+            object-fit: contain;
+            background: transparent;
+        }
+
+        .navbar .logo:hover img.logo-icon,
+        .navbar .logo:hover span.logo-icon {
+            transform: scale(1.1) rotate(5deg);
+            animation: pulseGlow 1.5s infinite;
+        }
+
+        @media (max-width: 480px) {
+            .umkm-map {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header" id="top">
+        <div class="container navbar">
+
+            <a href="index.html" class="logo"
+               aria-label="Beranda Bergas Lor">
+                <!-- Gambar Logo dengan deteksi otomatis ekstensi (.png, .jpg, .jpeg, .webp) -->
+                <img
+                    src="Logo Bergas.png"
+                    alt="Logo Kelurahan Bergas Lor"
+                    class="logo-icon"
+                    width="48"
+                    height="48"
+                    style="object-fit: contain; padding: 0; background: transparent;"
+                    onerror="
+                        if (!this.dataset.step) {
+                            this.dataset.step = 1;
+                            this.src = 'Logo Bergas.jpg';
+                        } else if (this.dataset.step == 1) {
+                            this.dataset.step = 2;
+                            this.src = 'Logo Bergas.jpeg';
+                        } else if (this.dataset.step == 2) {
+                            this.dataset.step = 3;
+                            this.src = 'Logo Bergas.webp';
+                        } else if (this.dataset.step == 3) {
+                            this.dataset.step = 4;
+                            this.src = 'Logo Bergas';
+                        } else {
+                            this.style.display = 'none';
+                            this.nextElementSibling.style.display = 'inline-flex';
+                        }
+                    "
+                >
+
+                <span class="logo-icon" style="display: none; width: 48px; height: 48px; align-items: center; justify-content: center; background: #145c32; color: white; border-radius: 50%; font-weight: bold;">B</span>
+
+                <div class="logo-text">
+                    <strong>Bergas Lor</strong>
+                    <span>Informasi Kelurahan</span>
+                </div>
+            </a>
+
+            <button
+                type="button"
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Buka menu navigasi"
+                aria-controls="navMenu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu" id="navMenu"
+                 aria-label="Navigasi utama">
+                <a href="index.html#beranda">Beranda</a>
+                <a href="index.html#profil">Profil</a>
+                <a href="pelayanan.html">Pelayanan</a>
+                <a href="informasi.html">Informasi</a>
+                <a href="index.html#kontak">Kontak</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- ================= MENU KATEGORI ================= -->
+    <nav class="info-menu" aria-label="Kategori informasi">
+        <div class="info-menu-container">
+
+            <a href="#umkm" class="info-menu-item active">
+                <span class="menu-icon" aria-hidden="true">🛍️</span>
+                <span>UMKM</span>
+            </a>
+
+            <a href="#sekolah" class="info-menu-item">
+                <span class="menu-icon" aria-hidden="true">🏫</span>
+                <span>Sekolah</span>
+            </a>
+
+            <a href="#layanan-publik" class="info-menu-item">
+                <span class="menu-icon" aria-hidden="true">📋</span>
+                <span>Layanan Publik</span>
+            </a>
+
+        </div>
+    </nav>
+
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+        <section class="info-hero" aria-labelledby="hero-title">
+            <div class="container hero-content">
+
+                <span class="hero-label">
+                    PUSAT INFORMASI KELURAHAN
+                </span>
+
+                <h1 id="hero-title">
+                    Informasi Kelurahan
+                    <span>Bergas Lor</span>
+                </h1>
+
+                <p>
+                    Temukan informasi potensi UMKM, pendidikan,
+                    dan layanan publik untuk masyarakat Kelurahan
+                    Bergas Lor.
+                </p>
+
+                <a href="#umkm" class="btn-primary">
+                    Jelajahi Informasi
+                    <span aria-hidden="true">↓</span>
+                </a>
+
+            </div>
+        </section>
+
+
+        <!-- ================= UMKM ================= -->
+        <section class="umkm-section" id="umkm"
+                 aria-labelledby="umkm-title">
+
+            <div class="container">
+
+                <header class="section-heading">
+                    <span class="section-label">EKONOMI LOKAL</span>
+
+                    <h2 id="umkm-title">
+                        UMKM Kelurahan Bergas Lor
+                    </h2>
+
+                    <p>
+                        Mengenal potensi usaha masyarakat dan mendukung
+                        pertumbuhan ekonomi lokal.
+                    </p>
+                </header>
+
+                <div class="info-grid">
+
+                    <!-- UMKM 1 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="fotosoya.jpg"
+                                alt="Produk susu kedelai SOYA"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">USAHA LOKAL</span>
+
+                            <h3>Susu Kedelai "SOYA"</h3>
+
+                            <p>
+                                Soya adalah brand minuman susu kedelai
+                                lokal yang menyajikan minuman berbahan
+                                dasar kedelai. Informasi bahan, kandungan
+                                gizi, dan proses produksi dapat dikonfirmasi
+                                langsung kepada pemilik usaha.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi Susu Kedelai SOYA</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://maps.google.com/maps?q=Susu%20Kedelai%20SOYA%2C%20Bergas%20Lor%2C%20Bergas%2C%20Kabupaten%20Semarang%2C%20Jawa%20Tengah&z=15&output=embed"
+                                        title="Peta pencarian Susu Kedelai SOYA"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a
+                                    class="umkm-map-link"
+                                    href="https://www.google.com/maps/search/?api=1&query=Susu+Kedelai+SOYA%2C+Bergas+Lor%2C+Bergas%2C+Kabupaten+Semarang%2C+Jawa+Tengah"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    Buka di Google Maps ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- UMKM 2 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="KELOPOYESS.jpg"
+                                alt="Produk kelapa parut KELOPO YESS"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">USAHA LOKAL</span>
+
+                            <h3>Kelapa Parut "KELOPO YESS"</h3>
+
+                            <p>
+                                KELOPO YESS menyediakan kelapa parut
+                                untuk kebutuhan usaha kuliner dan rumah
+                                tangga. Informasi produk, pemesanan, dan
+                                ketersediaan layanan dapat dikonfirmasi
+                                kepada pemilik usaha.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi KELOPO YESS</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://maps.google.com/maps?q=KELOPO%20YESS%2C%20Bergas%20Lor%2C%20Bergas%2C%20Kabupaten%20Semarang%2C%20Jawa%20Tengah&z=15&output=embed"
+                                        title="Peta pencarian KELOPO YESS"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a
+                                    class="umkm-map-link"
+                                    href="https://www.google.com/maps/search/?api=1&query=KELOPO+YESS%2C+Bergas+Lor%2C+Bergas%2C+Kabupaten+Semarang%2C+Jawa+Tengah"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    Buka di Google Maps ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- UMKM 3 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="images/fotogunung.jpg"
+                                alt="Ilustrasi potensi wilayah Bergas Lor"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">USAHA LOKAL</span>
+
+                            <h3>ARJUNA CATERING</h3>
+
+                            <p>
+                                ARJUNA CATERING merupakan usaha katering
+                                yang ditampilkan pada halaman ini.
+                                Informasi menu, pemesanan, kapasitas,
+                                dan alamat usaha dapat ditambahkan
+                                setelah dikonfirmasi kepada pemilik.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi ARJUNA CATERING</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.4313533409963!2d110.40508987578384!3d-7.19152285203124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7087000966e39b%3A0xce335c5463b254e5!2sPawon%20Arjuna!5e0!3m2!1sid!2sus!4v1793300343407!5m2!1sid!2sus"
+                                        title="Peta pencarian ARJUNA CATERING"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a
+                                    class="umkm-map-link"
+                                    href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.4313533409963!2d110.40508987578384!3d-7.19152285203124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7087000966e39b%3A0xce335c5463b254e5!2sPawon%20Arjuna!5e0!3m2!1sid!2sus!4v1793300343407!5m2!1sid!2sus" 
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    Buka di Google Maps ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="info-note">
+                    <strong>Informasi UMKM</strong>
+                    <p>
+                        Peta menggunakan pencarian nama usaha dan wilayah.
+                        Periksa kembali alamat setiap usaha sebelum
+                        informasi dipublikasikan.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= SEKOLAH ================= -->
+        <section class="school-section" id="sekolah"
+                 aria-labelledby="school-title">
+
+            <div class="container">
+
+                <header class="section-heading">
+                    <span class="section-label">PENDIDIKAN</span>
+
+                    <h2 id="school-title">
+                        Sekolah di Sekitar Bergas Lor
+                    </h2>
+
+                    <p>
+                        Informasi fasilitas pendidikan untuk membantu
+                        masyarakat menemukan sekolah di wilayah sekitar.
+                    </p>
+                </header>
+
+                <div class="info-grid">
+
+                    <!-- SEKOLAH 1 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="sekolah1.jpg"
+                                alt="Madrasah Ibtidaiyah Arrosyad"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">
+                                PENDIDIKAN DASAR
+                            </span>
+
+                            <h3>Madrasah Ibtidaiyah Arrosyad</h3>
+
+                            <p>
+                                Informasi mengenai pendidikan dasar
+                                berbasis madrasah. Pastikan alamat,
+                                program pendidikan, dan informasi sekolah
+                                sesuai data resmi.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi MI Arrosyad</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15050.39009837557!2d110.394144057849!3d-7.188377628498335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70868fe8beb5d5%3A0xbe85518596bd729!2sMI%20Arrosyad!5e1!3m2!1sid!2sus!4v1791818229605!5m2!1sid!2sus"
+                                        title="Peta MI Arrosyad"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a class="umkm-map-link"
+                                   href="https://www.google.com/maps/search/?api=1&query=MI+Arrosyad+Bergas"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Buka di Google Maps ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- SEKOLAH 2 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="sekolah2.jpg"
+                                alt="SD Negeri Bergas Lor 1"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">
+                                PENDIDIKAN DASAR
+                            </span>
+
+                            <h3>SDN Bergas Lor 1</h3>
+
+                            <p>
+                                Sekolah dasar yang memberikan pendidikan
+                                fundamental bagi peserta didik. Informasi
+                                lokasi dan kegiatan sekolah dapat dilihat
+                                melalui peta berikut.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi SDN Bergas Lor 1</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.610642073381!2d110.42453257475968!3d-7.18679369281837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7086f78f1354a7%3A0xf619cb7ecf7df598!2sSD%20Negeri%20Bergas%20Lor%201!5e1!3m2!1sid!2sus!4v1791818602552!5m2!1sid!2sus"
+                                        title="Peta SDN Bergas Lor 1"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a class="umkm-map-link"
+                                   href="https://www.google.com/maps/search/?api=1&query=SD+Negeri+Bergas+Lor+1"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Buka di Google Maps ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- SEKOLAH 3 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="sekolah3.jpg"
+                                alt="SD Negeri Bergas Lor 2"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">
+                                PENDIDIKAN DASAR
+                            </span>
+
+                            <h3>SDN Bergas Lor 2</h3>
+
+                            <p>
+                                Informasi sekolah dasar untuk masyarakat
+                                dan orang tua yang membutuhkan referensi
+                                fasilitas pendidikan di sekitar Bergas Lor.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi SDN Bergas Lor 2</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6487450074274!2d110.41250547475967!3d-7.182190792822839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7086841555e3cb%3A0x382fe11764bf87f3!2sSD%20Negeri%20Bergas%20Lor%202!5e1!3m2!1sid!2sus!4v1791818866551!5m2!1sid!2sus"
+                                        title="Peta SDN Bergas Lor 2"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a class="umkm-map-link"
+                                   href="https://www.google.com/maps/search/?api=1&query=SD+Negeri+Bergas+Lor+2"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Buka di Google Maps ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- SEKOLAH 4 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="sekolah4.jpg"
+                                alt="SMP Negeri 2 Bergas"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">
+                                PENDIDIKAN MENENGAH
+                            </span>
+
+                            <h3>SMP Negeri 2 Bergas</h3>
+
+                            <p>
+                                Informasi pendidikan menengah pertama
+                                untuk membantu masyarakat menemukan
+                                lokasi sekolah dan memperoleh informasi
+                                lebih lanjut.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi SMP Negeri 2 Bergas</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.66442895!2d110.41288117475969!3d-7.18029529282472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70873ee5e43681%3A0x6d0be87ed55d41a!2sSMP%20NEGERI%202%20BERGAS!5e1!3m2!1sid!2sid!4v1791819711277!5m2!1sid!2sid"
+                                        title="Peta SMP Negeri 2 Bergas"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a class="umkm-map-link"
+                                   href="https://www.google.com/maps/search/?api=1&query=SMP+Negeri+2+Bergas"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Buka di Google Maps ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- SEKOLAH 5 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="sekolah5.jpg"
+                                alt="MTs Al-Uswah Bergas"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">
+                                PENDIDIKAN MADRASAH
+                            </span>
+
+                            <h3>MTs Al-Uswah Bergas</h3>
+
+                            <p>
+                                Informasi pendidikan tingkat madrasah
+                                tsanawiyah. Masyarakat dapat memeriksa
+                                lokasi dan informasi sekolah melalui
+                                tautan peta berikut.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi MTs Al-Uswah Bergas</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6300547526953!2d110.420594077385!3d-7.184448974309128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7086966d7b3c79%3A0x88eadac7198ff393!2sMTS%20Al-Uswah%20Bergas!5e1!3m2!1sid!2sus!4v1791820022582!5m2!1sid!2sus"
+                                        title="Peta MTs Al-Uswah Bergas"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a class="umkm-map-link"
+                                   href="https://www.google.com/maps/search/?api=1&query=MTs+Al-Uswah+Bergas"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Buka di Google Maps ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- SEKOLAH 6 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="sekolah6.jpeg"
+                                alt="SMP Negeri 1 Bergas"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">
+                                PENDIDIKAN MENENGAH
+                            </span>
+
+                            <h3>SMP Negeri 1 Bergas</h3>
+
+                            <p>
+                                Informasi pendidikan menengah pertama
+                                di wilayah Bergas. Periksa alamat sekolah
+                                dan informasi terbaru melalui peta berikut.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi SMP Negeri 1 Bergas</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.437254400111!2d110.42263887475971!3d-7.190845892814392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70869d6da71457%3A0x43f9bdaed204c0b6!2sSMA%20Negeri%201%20Bergas!5e0!3m2!1sid!2sus!4v1791820747572!5m2!1sid!2sus"
+                                        title="Peta wilayah sekolah Bergas"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a class="umkm-map-link"
+                                   href="https://www.google.com/maps/search/?api=1&query=SMP+Negeri+1+Bergas"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Cari SMP Negeri 1 Bergas ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="info-note">
+                    <strong>Informasi Sekolah</strong>
+                    <p>
+                        Pastikan nama, alamat, jenjang, dan lokasi sekolah
+                        telah sesuai dengan data resmi sebelum halaman
+                        dipublikasikan.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= LAYANAN PUBLIK ================= -->
+        <section class="public-service-section" id="layanan-publik"
+                 aria-labelledby="service-title">
+
+            <div class="container">
+
+                <header class="section-heading">
+                    <span class="section-label">
+                        PELAYANAN MASYARAKAT
+                    </span>
+
+                    <h2 id="service-title">
+                        Layanan Masyarakat di Kecamatan Bergas 
+                    </h2>
+
+                    <p>
+                        Kenali berbagai layanan administrasi dan informasi
+                        yang dibutuhkan masyarakat Kecamatan Bergas.
+                    </p>
+                </header>
+
+                <div class="info-grid">
+
+                    <!-- LAYANAN 1 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="kelurahan.jpg"
+                                alt="Ilustrasi pelayanan surat pengantar"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">
+                                ADMINISTRASI
+                            </span>
+
+                            <h3>KANTOR KELURAHAN BERGAS LOR</h3>
+
+                            <p>
+                                Informasi mengenai pengurusan surat
+                                pengantar untuk berbagai kebutuhan
+                                administrasi warga. Persyaratan dan
+                                prosedur dapat dikonfirmasi kepada
+                                pihak kelurahan.
+                            </p>
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi Kantor Kelurahan Bergas Lor</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.4885028409817!2d110.41322597475961!3d-7.184964092820121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708693faf8466f%3A0x51bfd82e0c5fc0e!2sKantor%20Kelurahan%20Bergas%20Lor!5e0!3m2!1sid!2sus!4v1791821922045!5m2!1sid!2sus" 
+                                        title="Peta wilayah kelurahan Bergas Lor"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a class="umkm-map-link"
+                                   href="https://www.google.com/maps/search/?api=1&query=Kantor+Kelurahan+Bergas+Lor"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Cari Kantor Kelurahan Bergas Lor ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- LAYANAN 2 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="KECAMATAN.jpg"
+                                alt="Ilustrasi administrasi domisili warga"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">
+                                ADMINISTRASI
+                            </span>
+
+                            <h3>KANTOR KECAMATAN BERGAS</h3>
+
+                            <p>
+                                Informasi mengenai pengajuan surat
+                                keterangan domisili atau tempat tinggal
+                                sesuai ketentuan dan prosedur yang berlaku.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi Kantor Kecamatan Bergas</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.454023778415!2d110.42315737475973!3d-7.188921792816261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70869d521acc6f%3A0xf7425298b1ab5235!2sKantor%20Kecamatan%20Bergas!5e0!3m2!1sid!2sus!4v1791822495282!5m2!1sid!2sus" 
+                                        title="Peta Kantor Kecamatan Bergas"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a class="umkm-map-link"
+                                   href="https://www.google.com/maps/search/?api=1&query=Kantor+Kecamatan+Bergas"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Cari Kantor Kecamatan Bergas ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- LAYANAN 3 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="UPTD.jpg"
+                                alt="Ilustrasi kegiatan usaha masyarakat"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">
+                                ADMINISTRASI
+                            </span>
+
+                            <h3>KANTOR UPTD BERGAS</h3>
+
+                            <p>
+                                Informasi administrasi yang berkaitan
+                                dengan keterangan usaha bagi warga yang
+                                membutuhkan dokumen untuk keperluan tertentu.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi Kantor UPTD Bergas</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.474177553785!2d110.4238128747596!3d-7.186608692818542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7084282980c38d%3A0x71a4d0dc1df4ccaf!2sUPTD%20Kecamatan%20Bergas!5e0!3m2!1sid!2sus!4v1791822673326!5m2!1sid!2sus" 
+                                        title="Peta Kantor UPTD Bergas"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a class="umkm-map-link"
+                                   href="https://www.google.com/maps/search/?api=1&query=UPTD+Kecamatan+Bergas"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Cari Kantor UPTD Bergas ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- LAYANAN 4 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="BPJS.jpg"
+                                alt="Ilustrasi pelayanan administrasi kependudukan"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">
+                                ASURANSI
+                            </span>
+
+                            <h3>BPJS KETENAGAKERJAAN</h3>
+
+                            <p>
+                                Informasi awal mengenai pengurusan dokumen
+                                kependudukan dan arahan untuk memperoleh
+                                pelayanan dari instansi yang berwenang.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi Kantor BPJS Ketenagakerjaan</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6774090444083!2d110.4179956747595!3d-7.178726192826241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7086a84577239b%3A0x63d480e56dc89c31!2sBPJS%20Ketenagakerjaan%20Ungaran!5e1!3m2!1sid!2sid!4v1791823096099!5m2!1sid!2sid" 
+                                        title="Peta BPJS Ketenagakerjaan"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a class="umkm-map-link"
+                                   href="https://www.google.com/maps/search/?api=1&query=BPJS+Ketenagakerjaan+Ungaran"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Cari Kantor BPJS Ketenagakerjaan ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article> 
+
+
+                    <!-- LAYANAN 5 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="PUSKESMAS.jpg"
+                                alt="Ilustrasi bantuan sosial masyarakat"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">
+                                KESEHATAN UMUM
+                            </span>
+
+                            <h3>PUSKESMAS BERGAS</h3>
+
+                            <p>
+                                Informasi umum mengenai program bantuan
+                                sosial dan cara memperoleh informasi
+                                persyaratan melalui pihak terkait.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi Puskesmas Bergas</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120401.3635235432!2d110.3477344162971!3d-7.1950047869411735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70869d4d53c673%3A0x7c89c94263c5d5ef!2sPuskesmas%20Bergas!5e1!3m2!1sid!2sid!4v1791823585246!5m2!1sid!2sid"
+                                        title="Peta Puskesmas Bergas"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a class="umkm-map-link"
+                                   href="https://www.google.com/maps/search/?api=1&query=Puskesmas+Bergas"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Cari Puskesmas Bergas ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article> 
+
+
+                    <!-- LAYANAN 6 -->
+                    <article class="info-card">
+                        <div class="info-card-image">
+                            <img
+                                src="RTH.jpg"
+                                alt="Ilustrasi komunikasi dan pengaduan warga"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+
+                        <div class="info-card-content">
+                            <span class="card-category">
+                                Layanan Tempat
+                            </span>
+
+                            <h3>RTH Bergas Lor</h3>
+
+                            <p>
+                                Sarana bagi masyarakat untuk mencari
+                                informasi, menyampaikan pertanyaan, atau
+                                mengetahui saluran pengaduan yang sesuai.
+                            </p>
+
+                            <div class="umkm-location">
+                                <h4>📍 Lokasi RTH BERGAS LOR</h4>
+
+                                <div class="umkm-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6255884634097!2d110.4128996747596!3d-7.18498849282008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70877f5f75f9eb%3A0x75e1bed84d099e82!2sRTH%20(Ruang%20Terbuka%20Hot)%20Sikepil!5e1!3m2!1sid!2sid!4v1791823950201!5m2!1sid!2sid" 
+                                        title="Peta RTH Bergas Lor"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+
+                                <a class="umkm-map-link"
+                                   href="https://www.google.com/maps/search/?api=1&query=RTH+Bergas+Lor"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Cari RTH Bergas Lor ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article> 
+
+                </div>
+
+                <div class="info-note">
+                    <strong>Informasi Pelayanan</strong>
+                    <p>
+                        Persyaratan, prosedur, waktu penyelesaian, dan
+                        kewenangan setiap layanan perlu dikonfirmasi
+                        langsung kepada Kelurahan Bergas Lor atau
+                        instansi terkait.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= AJAKAN KONTAK ================= -->
+        <section class="info-cta">
+            <div class="container cta-content">
+
+                <div>
+                    <span class="section-label">
+                        KELURAHAN BERGAS LOR
+                    </span>
+
+                    <h2>Butuh Informasi Lebih Lanjut?</h2>
+
+                    <p>
+                        Hubungi pihak kelurahan untuk mendapatkan
+                        informasi mengenai UMKM, pendidikan,
+                        dan layanan publik.
+                    </p>
+                </div>
+
+                <a href="index.html#kontak" class="btn-primary">
+                    Hubungi Kami
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container footer-content">
+
+            <div class="footer-brand">
+                <h2>Kelurahan Bergas Lor</h2>
+
+                <p>
+                    Informasi wilayah, potensi masyarakat,
+                    pendidikan, dan pelayanan publik.
+                </p>
+            </div>
+
+            <nav class="footer-links"
+                 aria-label="Navigasi footer">
+                <a href="index.html">Beranda</a>
+                <a href="pelayanan.html">Pelayanan</a>
+                <a href="#umkm">UMKM</a>
+                <a href="#sekolah">Sekolah</a>
+                <a href="#layanan-publik">Layanan Publik</a>
+            </nav>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                © <span id="currentYear"></span>
+                Kelurahan Bergas Lor
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        // Menu navigasi mobile
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navMenu.classList.toggle("show");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Tutup menu navigasi"
+                    : "Buka menu navigasi"
+            );
+        });
+
+        // Tutup menu setelah tautan dipilih
+        navMenu.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navMenu.classList.remove("show");
+
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Buka menu navigasi"
+                );
+            });
+        });
+
+        // Tutup menu dengan tombol Escape
+        document.addEventListener("keydown", function (event) {
+            if (
+                event.key === "Escape" &&
+                navMenu.classList.contains("show")
+            ) {
+                navMenu.classList.remove("show");
+
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Buka menu navigasi"
+                );
+
+                menuToggle.focus();
+            }
+        });
+
+        // Tahun footer otomatis
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+
+        // Penanda kategori aktif
+        const categoryLinks =
+            document.querySelectorAll(".info-menu-item");
+
+        categoryLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+                categoryLinks.forEach(function (item) {
+                    item.classList.remove("active");
+                });
+
+                this.classList.add("active");
+            });
+        });
+    </script>
+
+</body>
+</html>

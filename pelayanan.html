@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pelayanan | Kelurahan Bergas Lor</title>
+    <meta name="description" content="Informasi pelayanan masyarakat Kelurahan Bergas Lor.">
+
+    <!-- Favicon Tab Browser -->
+    <link rel="icon" href="Logo Bergas.png">
+
+    <link rel="stylesheet" href="pelayanan.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-container">
+
+            <a href="index.html#beranda" class="brand">
+                <!-- Gambar Logo Bergas di Navbar (Otomatis cek ekstensi .png, .jpg, .jpeg, .webp) -->
+                <img 
+                    src="Logo Bergas.png" 
+                    alt="Logo Bergas Lor" 
+                    class="brand-logo"
+                    style="object-fit: contain; padding: 0; background: transparent; width: 42px; height: 42px;"
+                    onerror="
+                        if (!this.dataset.step) {
+                            this.dataset.step = 1;
+                            this.src = 'Logo Bergas.jpg';
+                        } else if (this.dataset.step == 1) {
+                            this.dataset.step = 2;
+                            this.src = 'Logo Bergas.jpeg';
+                        } else if (this.dataset.step == 2) {
+                            this.dataset.step = 3;
+                            this.src = 'Logo Bergas.webp';
+                        } else if (this.dataset.step == 3) {
+                            this.dataset.step = 4;
+                            this.src = 'Logo Bergas';
+                        } else {
+                            this.style.display = 'none';
+                            this.nextElementSibling.style.display = 'flex';
+                        }
+                    ">
+                <div class="brand-logo" style="display: none;">BL</div>
+                <div class="brand-text">
+                    <strong>BERGAS LOR</strong>
+                    <span>Website Informasi Kelurahan</span>
+                </div>
+            </a>
+
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Buka navigasi"
+                    aria-expanded="false"
+                    aria-controls="navMenu">
+                ☰
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html#beranda">Beranda</a>
+                <a href="profil.html">Profil</a>
+                <a href="pelayanan.html" class="active">Pelayanan</a>
+                <a href="informasi.html">Informasi</a>
+                <a href="index.html#kontak">Kontak</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section class="service-hero">
+            <div class="hero-overlay"></div>
+
+            <div class="container hero-content">
+                <span class="section-label">LAYANAN MASYARAKAT</span>
+
+                <h1>Pelayanan Kelurahan<br>
+                    <span>Bergas Lor</span>
+                </h1>
+
+                <p>
+                    Temukan informasi awal mengenai pelayanan administrasi,
+                    persiapan dokumen, dan tahapan pengajuan layanan
+                    untuk masyarakat.
+                </p>
+
+                <a href="#daftar-layanan" class="btn btn-primary">
+                    Jelajahi Pelayanan ↓
+                </a>
+            </div>
+        </section>
+
+
+        <!-- INTRO -->
+        <section class="intro-section section-padding">
+            <div class="container intro-grid">
+
+                <div class="intro-content">
+                    <span class="section-label">PELAYANAN MASYARAKAT</span>
+
+                    <h2>Pelayanan yang Mudah Dipahami dan Diakses</h2>
+
+                    <p>
+                        Halaman ini menyediakan informasi awal bagi warga
+                        yang ingin mengetahui berbagai jenis pelayanan.
+                        Sebelum mengajukan permohonan, pastikan persyaratan
+                        dan prosedur terbaru telah dikonfirmasi kepada
+                        petugas kelurahan.
+                    </p>
+
+                    <a href="#alur" class="text-link">
+                        Pelajari alur pelayanan →
+                    </a>
+                </div>
+
+                <div class="intro-visual">
+                    <div class="intro-visual-icon">🏛️</div>
+                    <h3>Informasi Pelayanan</h3>
+                    <p>
+                        Informasi yang jelas membantu warga mempersiapkan
+                        kebutuhan administrasi dengan lebih baik.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- DAFTAR LAYANAN -->
+        <section class="services-section section-padding" id="daftar-layanan">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">JENIS PELAYANAN</span>
+                    <h2>Informasi Layanan</h2>
+                    <p>
+                        Pilih layanan untuk membaca informasi awal
+                        mengenai dokumen yang perlu dipersiapkan.
+                    </p>
+                </div>
+
+                <div class="service-grid">
+
+                    <!-- LAYANAN 1 -->
+                    <article class="service-card">
+                        <div class="service-icon">📄</div>
+                        <span class="service-number">KEPENDUDUKAN</span>
+
+                        <h3>Kartu Tanda Penduduk (KTP)</h3>
+
+                        <p>
+                            Pelayanan pembuatan dan penggantian Kartu Tanda Penduduk (KTP)
+                        </p>
+
+                        <details>
+                            <summary>Lihat persiapan dokumen</summary>
+                            <div class="detail-content">
+                                <strong>Dokumen yang dibutuhkan :</strong>
+                                <ul>
+                                    <li>Pengantar RT/RW.</li>
+                                    <li>Fotocopy Kartu Keluarga(Untuk Pemohon baru)</li>
+                                    <li>KTP Lama.(Untuk Penggantian)</li>
+                                    <li>Surat Kehilangan dari Polsek(untuk ktp hilang)</li>
+                                    <li>Surat Pindah(Untuk Pendatang)</li>
+                                </ul>
+                                <p>
+                                    Pastikan jenis surat dan persyaratan
+                                    yang berlaku kepada petugas.
+                                </p>
+                            </div>
+                        </details>
+                    </article>
+
+
+                    <!-- LAYANAN 2 -->
+                    <article class="service-card">
+                        <div class="service-icon">🏠</div>
+                        <span class="service-number">KEPENDUDUKAN</span>
+
+                        <h3>Kartu Keluarga</h3>
+
+                        <p>
+                            Pelayanan pembuatan, pemecahan, dan perubahan Kartu Keluarga (KK)
+                        </p>
+
+                        <details>
+                            <summary>Lihat persiapan dokumen</summary>
+                            <div class="detail-content">
+                                <strong>Dokumen Yang Dibutuhkan :</strong>
+                                <ul>
+                                    <li>Pengantar RT/ RW</li>
+                                    <li>KK lama asli</li>
+                                    <li>Surat Nikah (untuk KK keluarga baru)</li>
+                                    <li>Surat Pindah (untuk pendatang)</li>
+                                    <li>Akta Kematian Asli (untuk pengurangan anggota)</li>
+                                    <li>Dokumen Pendukung untuk Perubahan Data(semuanya asli)</li>
+                                </ul>
+                                <p>
+                                    Konfirmasikan persyaratan dan jenis
+                                    surat yang dapat diterbitkan.
+                                </p>
+                            </div>
+                        </details>
+                    </article>
+
+
+                    <!-- LAYANAN 3 -->
+                    <article class="service-card">
+                        <div class="service-icon">🏪</div>
+                        <span class="service-number">PENCATATAN SIPIL</span>
+
+                        <h3>Akta Kelahiran</h3>
+
+                        <p>
+                            Pelayanan pembuatan Akta Kelahiran baru
+                        </p>
+
+                        <details>
+                            <summary>Lihat persiapan dokumen</summary>
+                            <div class="detail-content">
+                                <strong>Dokumen yang Harus dibawa:</strong>
+                                <ul>
+                                    <li>Pengantar RT/ RW</li>
+                                    <li>Kartu Keluarga asli</li>
+                                    <li>Surat Keterangan Lahir Asli (dari Bidan/ Dokter)</li>
+                                    <li>Fotocopy KTP Ayah & Ibu (2 lembar)</li>
+                                    <li>Fotocopy KTP 2 Orang Saksi (2 lembar)</li>
+                                    <li>Fotocopy Surat Nikah orang tua (2 lembar)</li>
+                                </ul>
+                                <p>
+                                    Tanyakan kepada petugas mengenai
+                                    bentuk surat dan prosedur yang berlaku.
+                                </p>
+                            </div>
+                        </details>
+                    </article>
+
+
+                    <!-- LAYANAN 4 -->
+                    <article class="service-card">
+                        <div class="service-icon">👨‍👩‍👧</div>
+                        <span class="service-number">Pencatatan Sipil</span>
+
+                        <h3>Akta Kematian</h3>
+
+                        <p>
+                          Pelayanan pembuatan Akta Kematian baru
+                        </p>
+
+                        <details>
+                            <summary>Lihat persiapan dokumen</summary>
+                            <div class="detail-content">
+                                <strong>Persiapan Dokumen</strong>
+                                <ul>
+                                    <li>Pengantar RT/ RW</li>
+                                    <li>Kartu Keluarga asli</li>
+                                    <li>KTP asli</li>
+                                    <li>Surat Keterangan Kematian asli (dari Dokter, jika ada)</li>
+                                    <li>Fotocopy KTP 2 Orang Saksi (1 lembar)</li>
+                                    
+                                </ul>
+                                <p>
+                                    Persyaratan dan proses mengikuti prosedur
+                                    instansi yang berwenang.
+                                </p>
+                            </div>
+                        </details>
+                    </article>
+
+
+                    <!-- LAYANAN 5 -->
+                    <article class="service-card">
+                        <div class="service-icon">🤝</div>
+                        <span class="service-number">PENCATATAN SIPIL</span>
+
+                        <h3>Akta Perkawinan</h3>
+
+                        <p>
+                           Pelayanan pembuatan Akta Perkawinan baru
+                        </p>
+
+                        <details>
+                            <summary>Lihat informasi awal</summary>
+                            <div class="detail-content">
+                                <strong>Dokumen yang perlu disiapkan:</strong>
+                                <ul>
+                                    <li>Pengantar RT/ RW</li>
+                                    <li>Fotocopy KTP & Kartu Keluarga ke 2 calon mempelai</li>
+                                    <li>Kutipan Akta Perceraian/ Akta Kematian (bagi cerai hidup/ cerai mati).</li>
+                                    <li>Membawa Kelengkapan Dokumen Imigrasi (bagi orang asing)</li>
+                                    <li>Surat Bukti Pemberkatan Perkawinan (menurut Agamanya)</li>
+                                </ul>
+                                <p>
+                                    Ketentuan penerima dan persyaratan
+                                    mengikuti program serta instansi terkait.
+                                </p>
+                            </div>
+                        </details>
+                    </article>
+
+
+                    <!-- LAYANAN 6 -->
+                    <article class="service-card">
+                        <div class="service-icon">💬</div>
+                        <span class="service-number">PENCATATAN SIPIL</span>
+
+                        <h3>Akta Perceraian</h3>
+
+                        <p>
+                           Pelayanan pembuatan Akta Perceraian baru
+                        </p>
+
+                        <details>
+                            <summary>Lihat informasi awal</summary>
+                            <div class="detail-content">
+                                <strong>Dokumen yang perlu disiapkan:</strong>
+                                <ul>
+                                    <li>Pengantar RT/ RW</li>
+                                    <li>Surat Nikah asli</li>
+                                    <li>Salinan Putusan Pengadilan yang Berkekuatan Hukum</li>
+                                    <li>Fotocopy KTP dan KK</li>
+                                    <li>Surat Kuasa Bermaterai Rp 10.000,- (bagi yang dikuasakan)</li>
+                                </ul>
+                                <p>
+                                    Sampaikan pertanyaan atau pengaduan
+                                    melalui saluran resmi kelurahan.
+                                </p>
+                            </div>
+                        </details>
+                    </article>
+
+                      <!-- LAYANAN 7 -->
+                    <article class="service-card">
+                        <div class="service-icon">💬</div>
+                        <span class="service-number">SURAT PENGANTAR</span>
+
+                        <h3>Pengantar Umum</h3>
+
+                        <p>
+                           Pelayanan pembuatan surat pengantar umum
+                        </p>
+
+                        <details>
+                            <summary>Lihat informasi awal</summary>
+                            <div class="detail-content">
+                                <strong>Dokumen yang perlu disiapkan:</strong>
+                                <ul>
+                                    <li>Pengantar RT/ RW</li>
+                                    <li>Dokumen Pendukung</li>
+                                </ul>
+                                <p>
+                                    Sampaikan pertanyaan atau pengaduan
+                                    melalui saluran resmi kelurahan.
+                                </p>
+                            </div>
+                        </details>
+                    </article>
+
+
+                      <!-- LAYANAN 7 -->
+                    <article class="service-card">
+                        <div class="service-icon">💬</div>
+                        <span class="service-number">SURAT PENGANTAR</span>
+
+                        <h3>Pengantar SKCK</h3>
+
+                        <p>
+                        Pelayanan pembuatan surat pengantar SKCK baru
+                        </p>
+
+                        <details>
+                            <summary>Lihat informasi awal</summary>
+                            <div class="detail-content">
+                                <strong>Dokumen yang perlu disiapkan:</strong>
+                                <ul>
+                                    <li>Pengantar RT/ RW</li>
+                                    <li>Fotocopy KTP</li>
+                                    <li>Fotocopy Kartu Keluarga</li>
+                                    <li>Pas Photo 4×6 berwarna (4 lembar)</li>
+                                    <li>info lebih lanjut mengenai Pelayanan SKCK di Kabupaten Semarang Dapat diakses melalui E-SKCK pada link website berikut: linktr.ee/skckpolressemaran</li>
+                                </ul>
+                                <p>
+                                    Sampaikan pertanyaan atau pengaduan
+                                    melalui saluran resmi kelurahan.
+                                </p>
+                            </div>
+                        </details>
+                    </article>
+
+                     <!-- LAYANAN 7 -->
+                    <article class="service-card">
+                        <div class="service-icon">💬</div>
+                        <span class="service-number">KEPENDUDUKAN</span>
+
+                        <h3>Pindah Penduduk</h3>
+
+                        <p>
+                        Pelayanan administrasi pindah penduduk antar wilayah
+                        </p>
+
+                        <details>
+                            <summary>Lihat informasi awal</summary>
+                            <div class="detail-content">
+                                <strong>Dokumen yang perlu disiapkan:</strong>
+                                <ul>
+                                    <li>Pengantar RT/ RW</li>
+                                    <li>KTP Asli</li>
+                                    <li>Kartu Keluarga asli</li>
+                                    <li>Pas Photo 4×6 berwarna ( lembar)</li>
+                                    <li>Dokumen pendukung asli</li>
+                                </ul>
+                                <p>
+                                    Sampaikan pertanyaan atau pengaduan
+                                    melalui saluran resmi kelurahan.
+                                </p>
+
+                            </div>
+                        </details>
+                    </article>
+
+                     <!-- LAYANAN 7 -->
+                    <article class="service-card">
+                        <div class="service-icon">💬</div>
+                        <span class="service-number">SURAT KETERANGAN</span>
+
+                        <h3>Pengantar Ijin Keramaian</h3>
+
+                        <p>
+                        Pelayanan pembuatan surat pengantar izin Keramaian
+                        </p>
+
+                        <details>
+                            <summary>Lihat informasi awal</summary>
+                            <div class="detail-content">
+                                <strong>Dokumen yang perlu disiapkan:</strong>
+                                <ul>
+                                    <li>Pengantar RT/ RW</li>
+                                    <li>Data Pendukung (berupa data mengenai acara yang akan digelar)</li>
+                                    
+                                </ul>
+                                <p>
+                                    Sampaikan pertanyaan atau pengaduan
+                                    melalui saluran resmi kelurahan.
+                                </p>
+                            </div>
+                        </details>
+                    </article>
+
+                     <!-- LAYANAN 7 -->
+                    <article class="service-card">
+                        <div class="service-icon">💬</div>
+                        <span class="service-number">PENCATATAN SIPIL</span>
+
+                        <h3>Penerbitan Kutipan Ke Dua</h3>
+
+                        <p>
+                        Pelayanan penerbitan kembali akta karena hilang, rusak atau perubahan data
+                        </p>
+
+                        <details>
+                            <summary>Lihat informasi awal</summary>
+                            <div class="detail-content">
+                                <strong>Dokumen yang perlu disiapkan:</strong>
+                                <ul>
+                                    <li>Pengantar RT/ RW</li>
+                                    <li>Fotocopy KTP dan KK</li>
+                                    <li>Kutipan Pencatatan sipil asli yang Rusak atau fotocopy Kutipan Pencatatan Sipil yang hilang</li>
+                                    <li>Surat Kehilangan dari Polsek (untuk permohonan karena hilang)</li>
+                                    <li>Surat Keterangan Rusak dari Lurah (untuk permohonan karena rusak)</li>
+                                </ul>
+                                <p>
+                                    Sampaikan pertanyaan atau pengaduan
+                                    melalui saluran resmi kelurahan.
+                                </p>
+                            </div>
+                        </details>
+                    </article>
+
+                </div>
+
+                <div class="notice">
+                    <span class="notice-icon">ℹ️</span>
+                    <p>
+                        <strong>Informasi penting:</strong>
+                        Daftar layanan dan persyaratan di atas merupakan
+                        contoh awal untuk tampilan website. Verifikasi
+                        jenis layanan, dokumen yang diwajibkan, serta
+                        prosedur terbaru kepada Kelurahan Bergas Lor
+                        sebelum dipublikasikan sebagai informasi resmi.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ALUR PELAYANAN -->
+        <section class="flow-section section-padding" id="alur">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">TAHAPAN PENGAJUAN</span>
+                    <h2>Bagaimana Alur Pelayanan?</h2>
+                    <p>
+                        Berikut gambaran umum tahapan yang dapat diikuti
+                        warga saat mempersiapkan permohonan.
+                    </p>
+                </div>
+
+                <div class="flow-grid">
+
+                    <article class="flow-card">
+                        <div class="flow-number">01</div>
+                        <h3>Pilih Layanan</h3>
+                        <p>
+                            Tentukan jenis pelayanan yang sesuai dengan
+                            kebutuhan administrasi.
+                        </p>
+                    </article>
+
+                    <article class="flow-card">
+                        <div class="flow-number">02</div>
+                        <h3>Siapkan Dokumen</h3>
+                        <p>
+                            Periksa dan siapkan dokumen yang diminta
+                            sesuai jenis permohonan.
+                        </p>
+                    </article>
+
+                    <article class="flow-card">
+                        <div class="flow-number">03</div>
+                        <h3>Konfirmasi</h3>
+                        <p>
+                            Pastikan persyaratan dan prosedur terbaru
+                            melalui petugas kelurahan.
+                        </p>
+                    </article>
+
+                    <article class="flow-card">
+                        <div class="flow-number">04</div>
+                        <h3>Ajukan Permohonan</h3>
+                        <p>
+                            Ikuti proses pengajuan dan arahan petugas
+                            hingga pelayanan selesai.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- BANNER KONTAK -->
+        <section class="contact-banner">
+            <div class="container contact-banner-inner">
+
+                <div>
+                    <span class="section-label">BUTUH INFORMASI?</span>
+                    <h2>Kami Siap Membantu Anda</h2>
+                    <p>
+                        Untuk informasi lebih lanjut mengenai pelayanan,
+                        silakan kunjungi halaman kontak Kelurahan Bergas Lor.
+                    </p>
+                </div>
+
+                <a href="index.html#kontak" class="btn btn-primary">
+                    Lihat Kontak →
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+
+            <div class="footer-brand">
+                <a href="index.html#beranda" class="brand">
+                    <!-- Gambar Logo Bergas di Footer -->
+                    <img 
+                        src="Logo Bergas.png" 
+                        alt="Logo Bergas Lor" 
+                        class="brand-logo footer-logo"
+                        style="object-fit: contain; padding: 0; background: transparent; width: 42px; height: 42px;"
+                        onerror="
+                            if (!this.dataset.step) {
+                                this.dataset.step = 1;
+                                this.src = 'Logo Bergas.jpg';
+                            } else if (this.dataset.step == 1) {
+                                this.dataset.step = 2;
+                                this.src = 'Logo Bergas.jpeg';
+                            } else if (this.dataset.step == 2) {
+                                this.dataset.step = 3;
+                                this.src = 'Logo Bergas.webp';
+                            } else if (this.dataset.step == 3) {
+                                this.dataset.step = 4;
+                                this.src = 'Logo Bergas';
+                            } else {
+                                this.style.display = 'none';
+                                this.nextElementSibling.style.display = 'flex';
+                            }
+                        ">
+                    <div class="brand-logo footer-logo" style="display: none;">BL</div>
+                    <div class="brand-text">
+                        <strong>BERGAS LOR</strong>
+                        <span>Website Informasi Kelurahan</span>
+                    </div>
+                </a>
+
+                <p>
+                    Informasi profil wilayah dan pelayanan
+                    masyarakat Kelurahan Bergas Lor.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Navigasi</h3>
+                <a href="index.html#beranda">Beranda</a>
+                <a href="profil.html">Profil</a>
+                <a href="pelayanan.html">Pelayanan</a>
+                <a href="informasi.html">Informasi</a>
+                <a href="index.html#kontak">Kontak</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>
+                    &copy; <span id="year">2026</span>
+                    Kelurahan Bergas Lor.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener("click", function () {
+                const isOpen = navMenu.classList.toggle("active");
+
+                menuToggle.setAttribute("aria-expanded", String(isOpen));
+                menuToggle.setAttribute(
+                    "aria-label",
+                    isOpen ? "Tutup navigasi" : "Buka navigasi"
+                );
+
+                menuToggle.textContent = isOpen ? "✕" : "☰";
+            });
+
+            navMenu.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    navMenu.classList.remove("active");
+                    menuToggle.setAttribute("aria-expanded", "false");
+                    menuToggle.setAttribute("aria-label", "Buka navigasi");
+                    menuToggle.textContent = "☰";
+                });
+            });
+        }
+
+        const yearEl = document.getElementById("year");
+        if (yearEl) {
+            yearEl.textContent = new Date().getFullYear();
+        }
+    </script>
+
+</body>
+</html>
